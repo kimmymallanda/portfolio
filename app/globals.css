@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-paper text-ink font-sans antialiased; }
+:focus-visible { outline: 2px solid #8f6428; outline-offset: 3px; }
+
+.eyebrow { @apply text-xs uppercase tracking-[0.22em] text-stone; }
+
+/* Gentle load-in. Disabled for people who prefer reduced motion. */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.3s; }
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Markdown body for case studies */
+.prose-lite { @apply text-lg leading-relaxed text-ink/90; }
+.prose-lite p { @apply mb-5; }
+.prose-lite h2 { @apply font-serif text-3xl mt-12 mb-4; }
+.prose-lite h3 { @apply font-serif text-xl mt-8 mb-3; }
+.prose-lite ul { @apply list-disc pl-6 mb-5 space-y-2; }
+.prose-lite ol { @apply list-decimal pl-6 mb-5 space-y-2; }
+.prose-lite a { @apply underline decoration-brass underline-offset-4; }
+.prose-lite blockquote { @apply border-l-2 border-brass pl-5 italic text-stone my-6; }
