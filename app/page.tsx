@@ -26,14 +26,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b3a37]/95 via-[#0b3a37]/55 to-[#0b3a37]/20 md:from-[#0b3a37]/90 md:via-[#0b3a37]/25 md:to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-12 sm:px-6 sm:pb-16 md:px-10 md:pb-24">
           <p className="rise text-[11px] font-medium uppercase leading-relaxed tracking-[0.18em] text-white/90 drop-shadow sm:text-xs sm:tracking-[0.22em] sm:text-sun">
-            {site.role.split(' | ').map((part, i) => (
+            {site.role.split(' | ').map((part, i, all) => (
               <span key={part}>
-                {i > 0 && (
-                  <span aria-hidden="true" className="text-sun">
-                    {' · '}
-                  </span>
-                )}
-                <span className="whitespace-nowrap">{part}</span>
+                <span className="whitespace-nowrap">
+                  {part}
+                  {i < all.length - 1 && (
+                    <span aria-hidden="true" className="text-sun">
+                      {' ·'}
+                    </span>
+                  )}
+                </span>
+                {i < all.length - 1 && ' '}
               </span>
             ))}
           </p>
