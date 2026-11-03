@@ -20,11 +20,11 @@ export default function Header({ name, resume, resumeName }: { name: string; res
       >
         Skip to content
       </a>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
-        <Link href="/" className="font-serif text-xl tracking-tight">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-5 sm:px-6 md:px-10 md:py-6">
+        <Link href="/" className="whitespace-nowrap font-serif text-[17px] tracking-tight sm:text-xl">
           {name}
         </Link>
-        <nav aria-label="Main" className="flex items-center gap-5 text-sm md:gap-8">
+        <nav aria-label="Main" className="flex items-center gap-3.5 text-sm sm:gap-5 md:gap-8">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="hover:opacity-70">
               {l.label}
@@ -34,7 +34,7 @@ export default function Header({ name, resume, resumeName }: { name: string; res
             <a
               href={resume}
               download={resumeName}
-              className="rounded-full border border-current px-4 py-1.5 hover:bg-paper hover:text-ink"
+              className="hidden rounded-full border border-current px-4 py-1.5 hover:bg-paper hover:text-ink sm:inline-block"
             >
               Résumé
             </a>
