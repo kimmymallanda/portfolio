@@ -11,7 +11,7 @@ export default function About() {
   return (
     <div className="mx-auto max-w-3xl px-6 pb-8 pt-40 md:px-10">
       <p className="eyebrow">About</p>
-      <h1 className="mt-3 font-serif text-5xl leading-tight md:text-6xl">
+      <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl md:text-6xl">
         I’ve always been the person who turns complicated things into stories worth following.
       </h1>
 
