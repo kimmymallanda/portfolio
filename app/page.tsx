@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       {/* Bright, full-color hero: the footage plays at full strength under a soft teal wash, not a black screen. */}
-      <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-lagoon text-white">
+      <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-lagoon pt-24 text-white md:pt-0">
         <HeroVideo
           className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
           src="/video/hero-loop.mp4"
@@ -23,21 +23,32 @@ export default function Home() {
           aria-hidden="true"
         />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b3a37]/90 via-[#0b3a37]/25 to-transparent" />
-        <div className="relative mx-auto w-full max-w-7xl px-6 pb-16 md:px-10 md:pb-24">
-          <p className="rise text-xs uppercase tracking-[0.22em] text-sun">{site.role}</p>
-          <h1 className="rise rise-2 mt-5 max-w-5xl font-serif text-5xl leading-[1.02] tracking-tight drop-shadow-md sm:text-7xl lg:text-8xl">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b3a37]/95 via-[#0b3a37]/55 to-[#0b3a37]/20 md:from-[#0b3a37]/90 md:via-[#0b3a37]/25 md:to-transparent" />
+        <div className="relative mx-auto w-full max-w-7xl px-5 pb-12 sm:px-6 sm:pb-16 md:px-10 md:pb-24">
+          <p className="rise text-[11px] font-medium uppercase leading-relaxed tracking-[0.18em] text-white/90 drop-shadow sm:text-xs sm:tracking-[0.22em] sm:text-sun">
+            {site.role.split(' | ').map((part, i) => (
+              <span key={part}>
+                {i > 0 && (
+                  <span aria-hidden="true" className="text-sun">
+                    {' · '}
+                  </span>
+                )}
+                <span className="whitespace-nowrap">{part}</span>
+              </span>
+            ))}
+          </p>
+          <h1 className="rise rise-2 mt-4 max-w-5xl font-serif text-5xl leading-[1.05] tracking-tight drop-shadow-md sm:mt-5 sm:text-7xl sm:leading-[1.02] lg:text-8xl">
             {site.headline}
           </h1>
-          <p className="rise rise-3 mt-8 max-w-2xl text-lg leading-relaxed text-white/90">{site.intro}</p>
-          <div className="rise rise-3 mt-10 flex flex-wrap gap-4 text-sm">
-            <Link href="/work" className="rounded-full bg-sun px-6 py-3 font-medium text-ink hover:bg-white">
+          <p className="rise rise-3 mt-6 max-w-2xl text-base leading-relaxed text-white/90 sm:mt-8 sm:text-lg">{site.intro}</p>
+          <div className="rise rise-3 mt-8 flex flex-wrap gap-3 text-sm sm:mt-10 sm:gap-4">
+            <Link href="/work" className="w-full rounded-full bg-sun px-6 py-3 text-center font-medium text-ink hover:bg-white sm:w-auto">
               View selected work
             </Link>
-            <Link href="/about" className="rounded-full border border-white/70 px-6 py-3 hover:bg-white hover:text-ink">
+            <Link href="/about" className="flex-1 rounded-full border border-white/70 px-6 py-3 text-center hover:bg-white hover:text-ink sm:flex-none">
               About
             </Link>
-            <Link href="/contact" className="rounded-full border border-white/70 px-6 py-3 hover:bg-white hover:text-ink">
+            <Link href="/contact" className="flex-1 rounded-full border border-white/70 px-6 py-3 text-center hover:bg-white hover:text-ink sm:flex-none">
               Contact
             </Link>
           </div>
@@ -46,12 +57,12 @@ export default function Home() {
 
       {featured.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 pt-28 md:px-10" aria-labelledby="featured">
-          <div className="mb-14 flex items-end justify-between">
+          <div className="mb-14 flex items-end justify-between gap-4">
             <h2 id="featured" className="font-serif text-4xl md:text-5xl">
               Selected work
               <span className="mt-3 block h-1 w-20 bg-coral" />
             </h2>
-            <Link href="/work" className="text-sm font-medium text-lagoon underline decoration-2 underline-offset-4">
+            <Link href="/work" className="whitespace-nowrap text-sm font-medium text-lagoon underline decoration-2 underline-offset-4">
               All projects →
             </Link>
           </div>
