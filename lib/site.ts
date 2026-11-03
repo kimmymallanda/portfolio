@@ -12,7 +12,12 @@ export const site = {
     'I’m a creative storyteller and marketing strategist with a background in financial technology, brand building, and original writing. I bring ideas to life through compelling narratives, thoughtful visuals, and content designed to connect with audiences.',
   email: 'kimmymallanda@gmail.com',
   linkedin: 'https://www.linkedin.com/in/kimberly-mallanda/',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  // Used for link-preview images (Open Graph). Falls back to the live Vercel address.
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'https://kimmy-mallanda-portfolio.vercel.app'),
 };
 
 // The résumé button only appears once public/resume.pdf exists,
